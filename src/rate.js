@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {View, Text} from 'react-native'
+import {View, Text, StyleSheet} from 'react-native'
 
 export default class Bitcoin extends Component {
 
@@ -57,12 +57,14 @@ getrate() {
       return (
          <View>
          {this.getrate()}
-          <Text>
+          <Text style={{fontSize: 40}}>
                {this.state.myText}
           </Text>
          </View>
       );
    }
+
+
 
 
 
