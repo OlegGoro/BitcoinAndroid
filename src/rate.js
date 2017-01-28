@@ -17,7 +17,8 @@ getrate() {
   fetch('https://api.bitcoinaverage.com/ticker/global/USD/')
     .then((response) => response.json())
     .then((responseJson) => {
-    this.setState({myText: responseJson.bid})
+    var average = (responseJson.bid + responseJson.ask) / 2
+    this.setState({myText: average})
     })
   }
 
@@ -29,15 +30,30 @@ getrate() {
     })
   }
 
+  if (this.props.name == "btcmarkets"){
+  fetch('https://api.btcmarkets.net/market/BTC/AUD/tick')
+    .then((response) => response.json())
+    .then((responseJson) => {
+    var average = (responseJson.bestBid + responseJson.bestAsk) / 2;
+    this.setState({myText: average})
+    })
+  }
 
+    if (this.props.name == "cex"){
+    fetch('https://cex.io/api/ticker/BTC/USD')
+      .then((response) => response.json())
+      .then((responseJson) => {
+      var average = (responseJson.bid + responseJson.ask) / 2;
+      this.setState({myText: average})
+      })
+
+  }
 
 
 }
 
 
-
    render() {
-
       return (
          <View>
          {this.getrate()}
