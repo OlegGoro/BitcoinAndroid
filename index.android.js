@@ -7,16 +7,17 @@ export default class AwesomeProject extends Component {
   render() {
     return (
     <View style={{flex: 1}}>
-    <View style={{flex:1, backgroundColor: 'darkblue'}} />
-    <Chart />
     <View style={{
-          backgroundColor: 'indianred',
           flexDirection: 'column',
           justifyContent: 'space-between',}}>
           <Rate name={'btc-e'} />
+    <View style={{flex:1, backgroundColor: 'lightgrey'}} />
+
+
 
     </View>
-    <View style={{flex: 1, backgroundColor: 'lightcyan'}} />
+        <Chart />
+    <View style={{flex: 1, backgroundColor: 'lightgrey'}} />
     </View>
 
     );
