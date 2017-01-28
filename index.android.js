@@ -10,7 +10,6 @@ export default class AwesomeProject extends Component {
       // What if you add `height: 300` instead of `flex: 1`?
       <View style={{flex: 1}}>
         <View style={{flex: 1, backgroundColor: 'white'}} />
-        <HelloScreen />
         <View style={{height:300, backgroundColor: '#FAFAFA'}} />
       </View>
     );
