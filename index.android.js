@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {AppRegistry,Text,View} from 'react-native'
-import HelloScreen from './src/helloscreen.js'
+import Rate from './src/rate.js'
 
 export default class AwesomeProject extends Component {
   render() {
@@ -10,6 +10,7 @@ export default class AwesomeProject extends Component {
       // What if you add `height: 300` instead of `flex: 1`?
       <View style={{flex: 1}}>
         <View style={{flex: 1, backgroundColor: 'white'}} />
+        <Rate />
         <View style={{height:300, backgroundColor: '#FAFAFA'}} />
       </View>
     );
