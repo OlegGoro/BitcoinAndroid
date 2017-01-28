@@ -1,3 +1,6 @@
+import React, { Component } from 'react'
+import {View, Text} from 'react-native'
+
 export default class Bitcoin extends Component {
 
 
@@ -10,10 +13,10 @@ export default class Bitcoin extends Component {
 
 
 getrate() {
-  return fetch('https://api.bitcoinaverage.com/ticker/global/USD/')
+  fetch('https://api.bitcoinaverage.com/ticker/global/USD/')
     .then((response) => response.json())
     .then((responseJson) => {
-    this.setState({myText: responseJson.bid})
+    this.setState({myText: '800'})
     })
 }
 
