@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { StyleSheet, View } from 'react-native';
 import Chart from 'react-native-chart';
+import Moment from 'moment';
 
 // Using https://github.com/tomauty/react-native-chart
 
@@ -17,22 +18,54 @@ const styles = StyleSheet.create({
     },
 });
 
-const data = [
-    ['January 25', 800],
-    ['January 26', 790],
-    ['January 27', 820],
-    ['January 28', 830],
-    ['January 25', 800],
-    ['January 26', 790],
-    ['January 27', 820],
-    ['January 28', 830],
-
-];
 
 export default class ChartComponent extends Component {
+
+  constructor() {
+     super()
+     this.state = {
+        now: 'Подождите',
+        one: 'Подождите',
+        two: 'Подождите',
+        three: 'Подождите',
+        four: 'Подождите',
+        five: 'Подождите',
+        six: 'Подождите',
+     }
+  }
+
+gethistoryrate(){
+  fetch('https://api.blockchain.info/charts/market-price?format=json&timespan=7days')
+    .then((response) => response.json())
+    .then((responseJson) => {
+  this.setState({now: responseJson.values[6].y})
+  this.setState({one: responseJson.values[5].y})
+  this.setState({two: responseJson.values[4].y})
+  this.setState({three: responseJson.values[3].y})
+  this.setState({four: responseJson.values[2].y})
+  this.setState({five: responseJson.values[1].y})
+  this.setState({six: responseJson.values[0].y})
+
+    })
+
+
+}
     render() {
+
+
+      const data = [
+          [Moment().subtract(6, 'days').date(), this.state.six],
+          [Moment().subtract(5, 'days').date(), this.state.five],
+          [Moment().subtract(4, 'days').date(), this.state.four],
+          [Moment().subtract(3, 'days').date(), this.state.three],
+          [Moment().subtract(2, 'days').date(), this.state.two],
+          [Moment().subtract(1, 'days').date(), this.state.one],
+          [Moment().date(), this.state.now],
+
+      ]
         return (
             <View style={styles.container}>
+            {this.gethistoryrate()}
                 <Chart
                     style={styles.chart}
                     data={data}
