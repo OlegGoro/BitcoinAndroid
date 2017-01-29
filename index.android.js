@@ -22,7 +22,6 @@ export default class AwesomeProject extends Component {
 
     );
   }}
-
   const styles = StyleSheet.create({
     stilbitka: {
       fontSize: 40
