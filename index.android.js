@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {AppRegistry,Text,StyleSheet,View} from 'react-native'
 import Rate from './src/rate.js'
 import Chart from './src/chart.js'
+import News from './src/news.js'
 
 export default class AwesomeProject extends Component {
   render() {
@@ -14,7 +15,7 @@ export default class AwesomeProject extends Component {
           flexDirection: 'column',
           justifyContent: 'space-between',}}>
           <Rate name={'btc-e'} />
-
+          <News />
     </View>
     <View style={{flex: 1, backgroundColor: 'lightcyan'}} />
     </View>
