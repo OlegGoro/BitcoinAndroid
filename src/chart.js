@@ -38,14 +38,13 @@ gethistoryrate(){
   fetch('https://api.blockchain.info/charts/market-price?format=json&timespan=7days')
     .then((response) => response.json())
     .then((responseJson) => {
-  this.setState({now: responseJson.values[6].y})
-  this.setState({one: responseJson.values[5].y})
-  this.setState({two: responseJson.values[4].y})
-  this.setState({three: responseJson.values[3].y})
-  this.setState({four: responseJson.values[2].y})
-  this.setState({five: responseJson.values[1].y})
-  this.setState({six: responseJson.values[0].y})
-
+  this.setState({now: responseJson.values[6].y,
+    one: responseJson.values[5].y,
+    two: responseJson.values[4].y,
+    three: responseJson.values[3].y,
+    four: responseJson.values[2].y,
+    five: responseJson.values[1].y,
+    six: responseJson.values[0].y})
     })
 
 
