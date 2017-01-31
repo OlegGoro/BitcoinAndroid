@@ -10,6 +10,7 @@ export default class AwesomeProject extends Component {
     <View style={{flex: 1}}>
     <View style={{flex:1, backgroundColor: 'darkblue'}} />
     <Chart />
+    <News index={0} />
     <View style={{
           backgroundColor: 'indianred',
           flexDirection: 'column',
